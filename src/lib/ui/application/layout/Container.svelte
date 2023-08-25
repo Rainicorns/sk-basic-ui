@@ -24,12 +24,7 @@ Modelled after: https://tailwindui.com/components/application-ui/layout/containe
 	export { clazz as class };
 </script>
 
-<div
-	class:container={fixed}
-	class:sm:px-6={desktopPadded}
-	class:lg:px-8={desktopPadded}
-	class={`mx-auto h-full bg-red-100 ${clazz}`}
->
+<div class:container={fixed} class:sm:px-6={desktopPadded} class:lg:px-8={desktopPadded} class={`mx-auto h-full ${clazz}`}>
 	<slot>
 		<Placeholder />
 	</slot>

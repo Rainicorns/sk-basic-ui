@@ -1,19 +1,27 @@
 <script lang="ts">
-	export let href: string = '#';
+	import { browser, dev, building, version } from '$app/environment';
+	import { location } from '$lib/ui/util/stores/location.js';
 
+	export let href: string = '#';
 	export let selected: boolean = false;
-	export let selectedClasses: string =
-		'hover:bg-indigo-300 border-b-4 border-indigo-500 -pb-4 text-indigo-600 hover:text-indigo-200 h-full items-center text-sm font-medium flex';
+	export let selectedClasses: string = 'border-b-4 border-indigo-500 -pb-4 text-indigo-600 hover:text-indigo-200';
 
 	let clazz = '';
 	/**
 	 * Additional class overrides
 	 */
 	export { clazz as class };
+
+	function relPathToAbs() {
+		if (browser) {
+			const url = new URL(href, window.location.href);
+			return url.href;
+		}
+	}
+
+	$: if (browser) selected = $location.href === relPathToAbs();
 </script>
 
-<a
-	{href}
-	class={`text-indigo-400 hover:text-indigo-600 ${selected ? selectedClasses : ''} ${clazz}`}
-	><slot /></a
->
+<a {href} class:border-transparent={!selected} class={`transition-all h-full items-center flex font-medium text-indigo-400 border-b-4 border-transparent hover:text-indigo-600 ${selected ? selectedClasses : ''} ${clazz}`}>
+	<slot />
+</a>

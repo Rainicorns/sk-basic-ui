@@ -27,7 +27,7 @@
 	export { clazz as class };
 </script>
 
-<header class:sticky class:top-0={sticky} class={`min-h-8 w-full bg-red-100 ${clazz}`}>
+<header class:sticky class:top-0={sticky} class={`min-h-8 py-4 w-full border-b shadow-xl ${clazz}`}>
 	<Container class={`flex gap-4`} {fixed}>
 		<div class="shrink">
 			<slot name="left">

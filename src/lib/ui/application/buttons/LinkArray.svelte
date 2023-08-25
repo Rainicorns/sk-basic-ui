@@ -18,16 +18,11 @@
 	export { clazz as class };
 </script>
 
-<div
-	class:justify-center={justify === 'center'}
-	class:justify-start={justify === 'left'}
-	class:justify-end={justify === 'right'}
-	class={`h-full flex flex-cols gap-4 items-center ${clazz}`}
->
+<div class:justify-center={justify === 'center'} class:justify-start={justify === 'left'} class:justify-end={justify === 'right'} class={`h-full flex flex-cols gap-4 items-center ${clazz}`}>
 	<slot>
-		<Link selected={true}>Dashboard</Link>
-		<Link>Team</Link>
-		<Link>Projects</Link>
-		<Link>Calendar</Link>
+		<Link href="#dashboard" selected={true}>Dashboard</Link>
+		<Link href="#team">Team</Link>
+		<Link href="#projects">Projects</Link>
+		<Link href="#calendar">Calendar</Link>
 	</slot>
 </div>

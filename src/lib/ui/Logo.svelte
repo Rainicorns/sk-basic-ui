@@ -9,4 +9,4 @@
 	export { clazz as class };
 </script>
 
-<img class={`h-12 w-auto ${clazz}`} {src} alt={companyName} />
+<img class={`h-8 w-auto ${clazz}`} {src} alt={companyName} />
