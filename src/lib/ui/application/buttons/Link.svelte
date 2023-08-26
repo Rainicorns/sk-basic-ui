@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { browser, dev, building, version } from '$app/environment';
+	import { relPathToAbs } from '$lib/ui/util/functions/relPathToAbs.js';
 	import { location } from '$lib/ui/util/stores/location.js';
 
 	export let href: string = '#';
@@ -12,14 +13,7 @@
 	 */
 	export { clazz as class };
 
-	function relPathToAbs() {
-		if (browser) {
-			const url = new URL(href, window.location.href);
-			return url.href;
-		}
-	}
-
-	$: if (browser) selected = $location.href === relPathToAbs();
+	$: if (browser) selected = $location.href === relPathToAbs(href);
 </script>
 
 <a {href} class:border-transparent={!selected} class={`transition-all h-full items-center flex font-medium text-indigo-400 border-b-4 border-transparent hover:text-indigo-600 ${selected ? selectedClasses : ''} ${clazz}`}>
