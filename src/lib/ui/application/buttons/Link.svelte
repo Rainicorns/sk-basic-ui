@@ -1,3 +1,8 @@
+<!--
+	@component
+	A link component that assume verical layout.
+	
+-->
 <script lang="ts">
 	import { browser, dev, building, version } from '$app/environment';
 	import { relPathToAbs } from '$lib/ui/util/functions/relPathToAbs.js';

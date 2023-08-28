@@ -9,8 +9,8 @@ if (browser) {
 	const originalPushState = history.pushState;
 	const originalReplaceState = history.replaceState;
 	const updateHref = () => href.set(window?.location.href);
-	history.pushState = function (args) {
-		originalPushState.apply(this, args);
+	history.pushState = function (data, unused, url) {
+		originalPushState.apply(this, [data, unused, url]);
 		updateHref();
 	};
 	history.replaceState = function (data, unused, url) {
